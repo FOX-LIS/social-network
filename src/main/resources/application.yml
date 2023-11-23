@@ -1,0 +1,26 @@
+spring:
+  main:
+    allow-circular-references: true
+  data:
+    redis:
+      host: localhost
+      port: 6379
+  jpa:
+    generate-ddl: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+  datasource:
+    driverClassName: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: postgres
+    hikari:
+      schema: app_schema
+      connection-init-sql: CREATE SCHEMA IF NOT EXISTS app_schema
+      connection-timeout: 10000
+app:
+  jwt:
+    secret: "someSecretKey"
+    tokenExpiration: 5m
+    refTokenExpiration: 10m
